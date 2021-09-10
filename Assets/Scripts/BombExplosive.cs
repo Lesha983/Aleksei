@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class BombExplosive : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _monsters;
+    public delegate void ExplosiveBomb();
+    public static ExplosiveBomb BombActive;
 
     private void OnMouseDown()
     {
-        _monsters.AddRange(GameObject.FindGameObjectsWithTag("Monster"));
-        Explosive();
-    }
-
-    private void Explosive()
-    {
-        //_monsters.AddRange(GameObject.FindGameObjectsWithTag("Monster"));
-        foreach (GameObject monster in _monsters)
-        {
-            monster.GetComponent<Enemy>().DiedMonster();
-        }
-        GetComponent<SphereCollider>().enabled = false;
+        BombActive?.Invoke();
         Destroy(gameObject);
     }
+
 }

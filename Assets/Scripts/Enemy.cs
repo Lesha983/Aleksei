@@ -27,6 +27,7 @@ public abstract class Enemy : MonoBehaviour
         _startEnd = StartAndEndGame.Instance;
         //_ui._monstersLives.Add(gameObject);
         Initialization();
+        BombExplosive.BombActive += DiedMonster;
         if (Stats.GameOver)
         {
             _startEnd.EndGame();
@@ -69,6 +70,7 @@ public abstract class Enemy : MonoBehaviour
     {
         _animator.SetTrigger("Die");
         _audio.Play();
+        BombExplosive.BombActive -= DiedMonster;
         //_ui._monstersLives.Remove(gameObject);
         Destroy(gameObject, 1f);
         Stats.Score += _scorePoint;
