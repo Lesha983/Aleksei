@@ -17,6 +17,11 @@ public class UIStats : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        StartAndEndGame.GameOver += UpdateStats;
+    }
+
     public void UpdateStats()
     {
         _levelTxt.text = $"Level {Stats.Level}";

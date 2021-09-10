@@ -7,6 +7,9 @@ using System.Linq;
 public class StartAndEndGame : MonoBehaviour
 {
     public static StartAndEndGame Instance;
+    public delegate void GameOverDelegate();
+    public static GameOverDelegate GameOver;
+    //public static GameOverDelegate GameStart;
     [Header("Старт Игры")]
     [SerializeField] private List<GameObject> _uiMain;
     [SerializeField] private List<GameObject> _uiStartGame;
@@ -16,10 +19,7 @@ public class StartAndEndGame : MonoBehaviour
     [SerializeField] private List<GameObject> _monsters;
     [SerializeField] private GameObject _panelGameOver;
     [SerializeField] private List<Text> _recordsTxt;
-    private UIStats _ui;
     public List<int> Records;
-
-
 
     public void Awake()
     {
@@ -28,8 +28,11 @@ public class StartAndEndGame : MonoBehaviour
 
     private void Start()
     {
-        _spawner = MonsterSpawner.Instance;
-        _ui = UIStats.Instance;
+        GameOver += SortingRecords;
+        GameOver += Stats.Replay;
+        //GameStart += StartGame;
+
+         _spawner = MonsterSpawner.Instance;
         for (int i = 0; i < 5; i++)
         {
             Records.Add(PlayerPrefs.GetInt($"{i}"));
@@ -59,16 +62,13 @@ public class StartAndEndGame : MonoBehaviour
         {
             Records.Remove(Records.Min());
         }
-        SortingRecords();
+        GameOver?.Invoke();
         _panelGameOver.SetActive(true);
-        _spawner.EndGame();
         _monsters.AddRange(GameObject.FindGameObjectsWithTag("Monster"));
         foreach (GameObject monster in _monsters)
         {
             Destroy(monster);
         }
-        Stats.Replay();
-        _ui.UpdateStats();
     }
 
     public void SortingRecords()

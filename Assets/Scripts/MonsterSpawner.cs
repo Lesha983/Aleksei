@@ -14,6 +14,7 @@ public class MonsterSpawner : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        //StartAndEndGame.GameStart += StartGame;
     }
 
     public void StartGame()
@@ -21,6 +22,7 @@ public class MonsterSpawner : MonoBehaviour
         freez = true;
         _stopCoroutine = true;
         StartCoroutine(MonstersSpawner());
+        StartAndEndGame.GameOver += EndGame;
     }
 
     IEnumerator MonstersSpawner()

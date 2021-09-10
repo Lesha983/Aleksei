@@ -86,7 +86,7 @@ public abstract class Enemy : MonoBehaviour
         {
             Instantiate(_freezBomb, gameObject.transform.position, Quaternion.identity);
         }
-        else if (_chanceBoost <= 0.07f)
+        else if (_chanceBoost <= 0.87f)
         {
             Instantiate(_explosiveBomb, gameObject.transform.position, Quaternion.identity);
         }
