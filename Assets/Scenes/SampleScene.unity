@@ -402,7 +402,8 @@ MonoBehaviour:
   - {fileID: 911390157875118329, guid: 458f4507b67344d59bab1faf50c23625, type: 3}
   - {fileID: 4962121005043680394, guid: 37e6a1d8b514e46319ad7cb4241a64d3, type: 3}
   _spawnTime: 2
-  _animationStart: {fileID: 100008, guid: c315731710b634ac1907e6aceca06447, type: 3}
+  _animationStart: {fileID: 7372168351213116789, guid: dfbed2beec7bb41f2ae8a60f5147bfac,
+    type: 3}
 --- !u!4 &309102424
 Transform:
   m_ObjectHideFlags: 0
@@ -3977,7 +3978,6 @@ MonoBehaviour:
   _levelTxt: {fileID: 319144330}
   _scoreTxt: {fileID: 1630937073}
   _amountMonstersTxt: {fileID: 1538648394}
-  _monstersLives: []
 --- !u!1 &1630937071
 GameObject:
   m_ObjectHideFlags: 0
