@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{A513BC8D-6A7D-D6C5-EEBE-D27CF600D276}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StartAndEndGame.cs">
+    <Files>
+      <File FileName="Assets/Scripts/BombExplosive.cs" Line="12" Column="30" />
+      <File FileName="Assets/Scripts/StartAndEndGame.cs" Line="21" Column="53" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="89" Column="37" />
+      <File FileName="Assets/Scripts/Stats.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UIStats.cs" Line="22" Column="48" />
+      <File FileName="Assets/Scripts/MonsterSpawner.cs" Line="57" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Test" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="StartAndEndGame.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cf2a4f40-08bc-496c-95ab-6ad0a45e4767" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
