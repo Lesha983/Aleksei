@@ -6,8 +6,8 @@ public class LowMonster : Enemy
 {
     protected override void OnMouseDown()
     {
-        float x = Random.Range(0f, 1f);
-        if (x <= 0.9f)
+        float _chanceDodge = Random.Range(0f, 1f);
+        if (_chanceDodge <= 0.9f)
         {
             base.OnMouseDown();
         }

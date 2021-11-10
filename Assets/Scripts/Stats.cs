@@ -7,6 +7,7 @@ public static class Stats
     private static int _score = 0, levelcontroller = 100;
     private static int _amountMonsters;
     public static bool GameOver;
+    private static int _maxCountMonstersInScene = 10;
 
     public static int Score
     {
@@ -34,7 +35,7 @@ public static class Stats
         set
         {
             _amountMonsters = value;
-            if (_amountMonsters == 10)
+            if (_amountMonsters == _maxCountMonstersInScene)
             {
                 GameOver = true;
             }

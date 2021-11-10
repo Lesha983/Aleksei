@@ -5,10 +5,11 @@ using UnityEngine;
 public class BigMonster : Enemy
 {
     [SerializeField] private GameObject _miniMonster;
+    private int _miniMonstersCount = 2;
 
     public override void DiedMonster()
     {
-        for (int i=0; i < 2; i++)
+        for (int i=0; i < _miniMonstersCount; i++)
         {
             Instantiate(_miniMonster, gameObject.transform.position, Quaternion.identity);
         }

@@ -9,7 +9,6 @@ public class StartAndEndGame : MonoBehaviour
     public static StartAndEndGame Instance;
     public delegate void GameOverDelegate();
     public static GameOverDelegate GameOver;
-    //public static GameOverDelegate GameStart;
     [Header("Старт Игры")]
     [SerializeField] private List<GameObject> _uiMain;
     [SerializeField] private List<GameObject> _uiStartGame;
@@ -20,6 +19,7 @@ public class StartAndEndGame : MonoBehaviour
     [SerializeField] private GameObject _panelGameOver;
     [SerializeField] private List<Text> _recordsTxt;
     public List<int> Records;
+    private int _numberOfRecords = 5;
 
     public void Awake()
     {
@@ -30,10 +30,9 @@ public class StartAndEndGame : MonoBehaviour
     {
         GameOver += SortingRecords;
         GameOver += Stats.Replay;
-        //GameStart += StartGame;
 
          _spawner = MonsterSpawner.Instance;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < _numberOfRecords; i++)
         {
             Records.Add(PlayerPrefs.GetInt($"{i}"));
         }
@@ -58,7 +57,7 @@ public class StartAndEndGame : MonoBehaviour
     public void EndGame()
     {
         Records.Add(Stats.Score);
-        if (Records.Count > 5)
+        if (Records.Count > _numberOfRecords)
         {
             Records.Remove(Records.Min());
         }
@@ -74,13 +73,13 @@ public class StartAndEndGame : MonoBehaviour
     public void SortingRecords()
     {
         var NewRecords = Records.OrderByDescending(rec => rec).Distinct();
-        if (NewRecords.Count() < 5)
+        if (NewRecords.Count() < _numberOfRecords)
         {
             foreach (int i in NewRecords)
             {
                 _newRecords.Add(i);
             }
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < _numberOfRecords; i++)
             {
                 _newRecords.Add(0);
             }

@@ -14,7 +14,6 @@ public class MonsterSpawner : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        //StartAndEndGame.GameStart += StartGame;
     }
 
     public void StartGame()
@@ -43,7 +42,6 @@ public class MonsterSpawner : MonoBehaviour
                 }
                 Vector3 spawnPosition = new Vector3(Random.Range(-15f, 15f), 0.5f, Random.Range(-15f, 15f));
                 Instantiate(_animationStart, spawnPosition, Quaternion.identity);
-                //Destroy(_animationStart, 2f);
                 yield return new WaitForSeconds(0.5f);
                 Instantiate(_monsters[Random.Range(0, _monsters.Count)], spawnPosition, Quaternion.identity);
                 yield return new WaitForSeconds(_spawnTime);
@@ -58,8 +56,6 @@ public class MonsterSpawner : MonoBehaviour
 
     public void EndGame()
     {
-        //StopCoroutine(MonstersSpawner());
         _stopCoroutine = false;
-        print("Stop");
     }
 }

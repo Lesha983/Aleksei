@@ -10,7 +10,6 @@ public class UIStats : MonoBehaviour
     [SerializeField] private Text _levelTxt;
     [SerializeField] private Text _scoreTxt;
     [SerializeField] private Text _amountMonstersTxt;
-    //public List<GameObject> _monstersLives;
 
     public void Awake()
     {

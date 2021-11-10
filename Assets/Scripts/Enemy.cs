@@ -25,7 +25,6 @@ public abstract class Enemy : MonoBehaviour
         _audio = GetComponent<AudioSource>();
         _ui = UIStats.Instance;
         _startEnd = StartAndEndGame.Instance;
-        //_ui._monstersLives.Add(gameObject);
         Initialization();
         BombExplosive.BombActive += DiedMonster;
         if (Stats.GameOver)
@@ -71,7 +70,6 @@ public abstract class Enemy : MonoBehaviour
         _animator.SetTrigger("Die");
         _audio.Play();
         BombExplosive.BombActive -= DiedMonster;
-        //_ui._monstersLives.Remove(gameObject);
         Destroy(gameObject, 1f);
         Stats.Score += _scorePoint;
         --Stats.AmountMonsters;
